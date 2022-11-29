@@ -1,0 +1,297 @@
+import pygame, keyboard
+
+#Setting up game
+pygame.init()
+running = True
+
+#Setting up numbers
+secondTime = False
+numberOne = []
+numberTwo = []
+symbol = ""
+resultOne = 0
+resultTwo = 0
+result = '0'
+
+#Game Speed  
+clock = pygame.time.Clock()   
+gameSpeed = 90
+
+#Colours
+white = (255, 255, 255)
+black = (0, 0, 0)
+gray = (120, 120, 120)
+blue = (17, 62, 186)
+lightBlue = (147, 175, 250)
+
+#Setting up text
+
+#Font
+font = pygame.font.SysFont('Sans Serif', 80)
+
+#Numbers
+one = font.render('1', True, white)
+two = font.render('2', True, white)
+three = font.render('3', True, white)
+four = font.render('4', True, white)
+five = font.render('5', True, white)
+six = font.render('6', True, white)
+seven = font.render('7', True, white)
+eight = font.render('8', True, white)
+nine = font.render('9', True, white)
+zero = font.render('0', True, white)
+
+#Symbols
+mulitply = font.render('x', True, white)
+divide = font.render('/', True, white)
+add = font.render('+', True, white)
+subtract = font.render('-', True, white)
+equals = font.render('=', True, white)
+
+#Setting up display
+dis = pygame.display.set_mode((800, 600)) 
+pygame.display.set_caption("Calculator - Press C to Reset")
+
+while running == True:
+
+    #Getting mouse position
+    mouse = pygame.mouse.get_pos() 
+    (x,y) = mouse
+
+    #Checking input
+    event = pygame.event.poll() 
+
+    if event.type == pygame.QUIT: 
+       running = False
+    
+    #Reset numbers
+    if keyboard.is_pressed("c"):
+        secondTime = False
+        numberOne = []
+        numberTwo = []
+        symbol = ""
+        resultOne = 0
+        resultTwo = 0
+        result = '0'
+        
+    #Display
+    dis.fill(white)
+
+    #Buttons
+
+    #1
+    if 20 < x <= 170 and 120 <= y <= 270: 
+            pygame.draw.rect(dis, gray, [20, 120, 150, 150])
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if secondTime == True:
+                        numberTwo.append(1)
+                else:
+                        numberOne.append(1)
+    else: 
+            pygame.draw.rect(dis, black, [20, 120, 150, 150])
+    
+    dis.blit(one, (80, 170))
+
+    #2
+    if 180 < x <= 330 and 120 <= y <= 270: 
+            pygame.draw.rect(dis, gray, [180, 120, 150, 150])
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if secondTime == True:
+                        numberTwo.append(2)
+                else:
+                        numberOne.append(2)
+    else: 
+            pygame.draw.rect(dis, black, [180, 120, 150, 150])
+
+    dis.blit(two, (240, 170))
+
+    #3
+    if 340 < x <= 490 and 120 <= y <= 270: 
+            pygame.draw.rect(dis, gray, [340, 120, 150, 150]) 
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if secondTime == True:
+                        numberTwo.append(3)
+                else:
+                        numberOne.append(3)
+    else: 
+            pygame.draw.rect(dis, black, [340, 120, 150, 150])
+
+    dis.blit(three, (400, 170))
+
+    #4
+    if 20 < x <= 170 and 290 <= y <= 440: 
+            pygame.draw.rect(dis, gray, [20, 280, 150, 150])
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if secondTime == True:
+                        numberTwo.append(4)
+                else:
+                        numberOne.append(4)
+    else: 
+            pygame.draw.rect(dis, black, [20, 280, 150, 150])
+
+    dis.blit(four, (80, 330))
+
+    #5
+    if 180 < x <= 330 and 280 <= y <= 430: 
+            pygame.draw.rect(dis, gray, [180, 280, 150, 150])
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if secondTime == True:
+                        numberTwo.append(5)
+                else:
+                        numberOne.append(5)
+    else: 
+            pygame.draw.rect(dis, black, [180, 280, 150, 150])
+
+    dis.blit(five, (240, 330))
+
+    #6
+    if 340 < x <= 490 and 280 <= y <= 430: 
+            pygame.draw.rect(dis, gray, [340, 280, 150, 150])
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if secondTime == True:
+                        numberTwo.append(6)
+                else:
+                        numberOne.append(6)
+    else: 
+            pygame.draw.rect(dis, black, [340, 280, 150, 150])
+
+    dis.blit(six, (400, 330))
+
+    #7
+    if 20 < x <= 170 and 440 <= y <= 590: 
+            pygame.draw.rect(dis, gray, [20, 440, 150, 150])
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if secondTime == True:
+                        numberTwo.append(7)
+                else:
+                        numberOne.append(7)
+    else: 
+            pygame.draw.rect(dis, black, [20, 440, 150, 150])
+
+    dis.blit(seven, (80, 490))
+
+    #8
+    if 180 < x <= 330 and 440 <= y <= 590: 
+            pygame.draw.rect(dis, gray, [180, 440, 150, 150])
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if secondTime == True:
+                        numberTwo.append(8)
+                else:
+                        numberOne.append(8)
+    else: 
+            pygame.draw.rect(dis, black, [180, 440, 150, 150])
+
+    dis.blit(eight, (240, 490))
+
+    #9
+    if 340 < x <= 490 and 440 <= y <= 590: 
+            pygame.draw.rect(dis, gray, [340, 440, 150, 150])
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if secondTime == True:
+                        numberTwo.append(9)
+                else:
+                        numberOne.append(9)
+    else: 
+            pygame.draw.rect(dis, black, [340, 440, 150, 150])
+
+    dis.blit(nine, (400, 490))
+
+    #0
+    if 500 < x <= 645 and 120 <= y <= 265: 
+            pygame.draw.rect(dis, gray, [500, 120, 145, 145])
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if secondTime == True:
+                        numberTwo.append(0)
+                        print(numberTwo)
+                else:
+                        numberOne.append(0)
+                        print(numberOne)
+    else: 
+            pygame.draw.rect(dis, black, [500, 120, 145, 145])
+
+    dis.blit(zero, (560, 170))
+
+    #Symbols
+
+    #+
+    if 500 < x <= 645 and 280 <= y <= 425: 
+            pygame.draw.rect(dis, lightBlue, [500, 280, 145, 145])
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                secondTime = True
+                symbol = '+'
+    else: 
+            pygame.draw.rect(dis, blue, [500, 280, 145, 145])
+    
+    dis.blit(add, (560, 320))
+
+    #-
+    if 650 < x <= 795 and 280 <= y <= 425: 
+            pygame.draw.rect(dis, lightBlue, [650, 280, 145, 145])
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                secondTime = True
+                symbol = '-'
+    else: 
+            pygame.draw.rect(dis, blue, [650, 280, 145, 145])
+
+    dis.blit(subtract, (715, 320))
+
+    #x
+    if 500 < x <= 645 and 440 <= y <= 585: 
+            pygame.draw.rect(dis, lightBlue, [500, 440, 145, 145])
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                secondTime = True
+                symbol = 'x'
+    else: 
+            pygame.draw.rect(dis, blue, [500, 440, 145, 145])
+    
+    dis.blit(mulitply, (560, 485))
+
+    #/
+    if 650 < x <= 795 and 440 <= y <= 590: 
+            pygame.draw.rect(dis, lightBlue, [650, 440, 145, 145])
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                secondTime = True
+                symbol = '/'
+    else: 
+            pygame.draw.rect(dis, blue, [650, 440, 145, 145])
+
+    dis.blit(divide, (715, 486))
+
+    #=
+    if 650 < x <= 795 and 120 <= y <= 265: 
+            pygame.draw.rect(dis, lightBlue, [650, 120, 145, 145])
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                secondTime == False
+
+                #Converting to integers
+                resultOne = int(''.join(map(str,numberOne)))
+                resultTwo = int(''.join(map(str,numberTwo)))
+
+                #Calculating
+                if symbol == '+':
+                        result = int(resultOne) + int(resultTwo)
+                
+                elif symbol == "-":
+                        result = int(resultOne) - int(resultTwo)
+
+                elif symbol == "x":
+                        result = int(resultOne) * int(resultTwo)
+
+                elif symbol == "/":
+                        result = int(resultOne) / int(resultTwo)
+
+                result = str(result)
+                
+    else: 
+            pygame.draw.rect(dis, blue, [650, 120, 145, 145])
+
+    dis.blit(equals, (705, 160))
+
+    calculation = font.render((result), True, black)
+    dis.blit(calculation, (20,30))
+
+    #Update Loop
+    clock.tick(gameSpeed)
+    pygame.display.update()
+
+pygame.quit()

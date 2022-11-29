@@ -1,0 +1,5 @@
+- 👋 Hi, I’m @ZainBabarr
+- 👀 I’m interested in Computer Science
+- 🌱 I’m currently learning Python
+- 💞️ I’m looking to collaborate on coding projects (Python)
+- 📫 How to reach me, use my email
